@@ -1,0 +1,34 @@
+<h5>Simple API Call in Dropdown & Select Country with Required Validation</h5>
+<div class="card-container">
+<form name="form" (ngSubmit)="form.valid && onSubmit()" #form="ngForm">
+  <div class="form-group">
+  <label for="DDCountry">Country Dropdown</label>
+   <!-- DropDownList -->
+   <select class="custom-select" name="DDCountry" (change)="changecountry($event.target.value)"
+   [(ngModel)]=" ddlCountry" #DDCountry="ngModel"
+    [ngClass]="{ 'is-invalid': form.submitted && DDCountry.invalid }" required>
+     <option value="" class="text-primary font-weight-bolder">
+      --- "Select Country" ---
+    </option>
+    <option *ngFor="let Country of Countries" [value]="Country.Name">
+      {{Country.Name}}
+    </option>
+  </select>
+  <!-- Required Validation Message -->
+  <div *ngIf="form.submitted && DDCountry.invalid " class="text-danger">
+    <h6 *ngIf="DDCountry.errors.required">Country is Required</h6>
+  </div>
+</div>
+<button >Submit</button>
+<div>
+<label for="DDState">State Dropdown</label> </div>
+<div class="form-group">
+<select name =DDState  [(ngModel)]="ddlState" #DDState="ngModel">
+<option *ngFor="let State of States " [value]="State.State_Name">
+{{State.State_Name}}
+</option>
+</select>
+<button (click)="onDone()">Done</button>
+</div>
+</form>
+

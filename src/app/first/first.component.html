@@ -1,0 +1,29 @@
+<p>Sync & Async For API</p>
+<table>
+<tr>
+  <td><label>Country</label></td>
+  <td>
+  <jqxComboBox (onChange)="myComboBoxOncountry($event)"
+ [source]="dataAdapter1" [selectedIndex]="-1"
+[displayMember]="'Name'" [valueMember]="'Country_ID'" autoComplete = "false"  >
+</jqxComboBox>
+<div #selectionlog1 style="font-size: 18px; font-family: Verdana"></div></td>
+&nbsp;&nbsp;
+<td> <label>Currency</label> </td>
+<td>
+  <jqxComboBox (onSelect)="myComboBoxOnSelect($event)"
+  [source]="dataAdapter" [selectedIndex]="0"
+  [displayMember]="'Name'" [valueMember]="'Currency_ID'" >
+  </jqxComboBox>
+   <div #selectionlog style="font-size: 18px; font-family: Verdana"></div></td>
+</tr>
+<table><td> <label>State</label> </td>
+<td>
+  <jqxComboBox (onSelect)="myComboBoxOnState($event)"
+  [source]="dataAdapter2" [selectedIndex]="0" #myComboBox
+ [displayMember]="'State_Name'" [valueMember]="'State_ID'" >
+ </jqxComboBox>
+ <div #selectionlog2 style="font-size: 18px; font-family: Verdana"></div></td></table>
+
+</table>
+
